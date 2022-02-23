@@ -1,0 +1,22 @@
+/* 컨텐츠 선택자 */
+
+div.cntWrap{
+  width: 80px;
+  max-width: 1080px;
+  margin: 0 auto;
+  background-color: rgb(187, 177, 38);
+}
+div.cntWrap>div.content{}
+div.cntWrap>div.content>div.header{
+  width: 100vw;
+  margin-left: calc((100vw - 1080px) / -2);
+  background-color: aqua;
+}
+div.cntWrap>div.content>div.header>h2{}
+div.cntWrap>div.content>div.header>p{}
+div.cntWrap>div.content>div.section{}
+div.cntWrap>div.content>div.section>div.texts{}
+div.cntWrap>div.content>div.section>div.texts>h3{}
+div.cntWrap>div.content>div.section>div.texts>h5{}
+div.cntWrap>div.content>div.section>div.texts>p{}
+div.cntWrap>div.content>div.section>div.texts>div.btn{}

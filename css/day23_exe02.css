@@ -1,0 +1,364 @@
+/* width: 80%; / max-width: 1080px; / margin: 0 auto; 를 각 두번째에 넣는 이유 - 그리드를 잡기 위해서 */
+
+/* 헤더 */
+div.hdrWrap{}
+div.hdrWrap>div.header{
+  width: 80%;
+  max-width: 1080px;
+  margin: 0 auto;
+  line-height: 80px;
+  /* 라인하이트 높이 - 헤더가 차지하는 칸 2칸,
+  1칸당 40px, 총 80px */
+}
+div.hdrWrap>div.header:after{
+  content: '';
+  display: block;
+  clear: both;
+  /* 플로트 정렬 - h1와 ul.nav의 부모요소인 헤더에 가상요소를 입힘 */
+}
+
+div.hdrWrap>div.header>h1{
+  float: left;
+  /* 플로트 정렬 - 로고인 h1를 왼쪽으로 정렬하기 위해 사용*/
+}
+div.hdrWrap>div.header>h1>b{}
+div.hdrWrap>div.header>ul.nav{
+  float: right;
+  /* 플로트 정렬 - 네비를 전체적으로 보았을때,
+  오른쪽으로 위치하도록 정렬 */
+}
+div.hdrWrap>div.header>ul.nav>li{
+  float: left;
+  /* 플로트 정렬 - 오른쪽으로 정렬한 전체적인 네비를
+  각각 li로 왼쪽으로 하여 띄어쓰기 정렬*/
+  margin-left: 40px;
+  /* 마진 - li들 사이사이에 40px씩 띄어넣기를 위함,
+  어림잡아 한칸을 차지하고 있기 때문에 40px */
+}
+
+/* 네비게이션 박스 */
+
+input#ch{
+  display: none;
+}
+input#ch:checked+div.navBoxWrap{
+  height: 320px;
+}
+
+div.navBoxWrap{
+  height: 0px;
+  /* 높이 - 요기에 왜 높이가 0으로 들어가는지 모르겠습니다. */
+}
+div.navBoxWrap>div.navBox{
+  width: 80%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+div.navBoxWrap>div.navBox::after{
+  content:'';
+  display: block;
+  clear: both;
+
+  /* 플로트 정렬 - ul.nav의 부모요소인 네비박스에 가상요소를 입힘 */
+}
+
+
+div.navBoxWrap>div.navBox>ul.nav{
+  width: calc(100% / 6);
+  /* 너비 - 전체 네비박스에 포함되는 그리드 안에서 6가지로 나뉨 */
+  height: 240px;
+  /* 높이 - 네비 부분만 보았을때, 높이가 6칸,
+  한칸당 40px 이므로 6x40 = 240px */
+  float: left;
+  /* 플로트 정렬 - 한줄로 정렬된 네비를 
+  왼쪽으로 설정 하여 정렬 */
+}
+div.navBoxWrap>div.navBox>ul.nav>li{
+  line-height: 40px;
+  /* 하이라이트 높이 - li만 따로 봤을때, 한칸 차지, 즉 40px */
+}
+
+/* 메인 */
+div.mainWrap{}
+div.mainWrap>div.main{
+  width: 80%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+div.mainWrap>div.main>h1{
+  line-height: 80px;
+  /* 하이라이트 높이 - h1이 2칸 차지,
+  한칸당 40px 이기 때문에 총 80px */
+}
+div.mainWrap>div.main>h1>b{}
+div.mainWrap>div.main>p{
+  width: 50%;
+  /* 너비 - 전체 그리드 12칸중에서 6칸차지, 즉 50% */
+  height: 120px;
+  /* 높이 - 총 3칸, 한칸당 40px, 3 x 40 = 120px */
+  line-height: 40px;
+  /* 라인하이트 높이 - 한줄당 1칸 차지, 즉, 40px */
+  margin-top: 40px;
+  /* 마진 - logohere과 p사이는 한칸, 즉 40px */
+}
+
+/* 컨텐츠 공통 */
+div.cntWrap{
+  margin-top: 120px;
+  /* 마진 - 위로 3칸, 40x3=120px */
+}
+div.cntWrap>div.content{
+  width: 80%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+div.cntWrap>div.content>div.header>h2{
+  line-height: 80px;
+  /* 라인하이트 높이 - 총 2칸차지, 한칸당 40px, 총 80px  */
+}
+
+div.cntWrap>div.content>div.header>p{
+  width: calc(100% / 12 * 4.5);
+  /* 너비 - 100%인 전체 넓이 12칸에서 p가 차지하는 칸 4.5칸 */
+  height: 40px;
+  /* 높이 - 한칸차지, 즉 40px */
+  line-height: 20px;
+  /* 라인하이트 높이 - 한 줄당 1/2칸 차지, 즉 20px */
+  margin: 0 auto;
+  /* 마진 - p를 가운데 정렬
+  (위 아래 0, 왼쪽 오른쪽 자동) */
+}
+
+div.cntWrap>div.content>div.section{
+  margin-top: 80px;
+  /* 마진 - 헤더와 섹션 사이의 거리 2칸, 즉 80px */
+}
+
+div.cntWrap>div.content>div.section div.article>div.texts>h3{
+  line-height: 40px;
+  /* 컨텐츠1과 2의 h3은 같은 크기이며, 위치도 같음
+  한칸 차지하므로 40px */
+}
+
+/* 컨텐츠1 */
+div.cntWrap>div.content.cnt01{}
+div.cntWrap>div.content.cnt01>div.header{}
+div.cntWrap>div.content.cnt01>div.header>h2{}
+div.cntWrap>div.content.cnt01>div.header>p{}
+div.cntWrap>div.content.cnt01>div.section{}
+
+div.cntWrap>div.content.cnt01>div.section::after{
+  content: '';
+  display: block;
+  clear: both; 
+  /* 플로트 정렬 - 아티클의 부모요소인 섹션에 가상요소를 입힘 */
+}
+
+div.cntWrap>div.content.cnt01>div.section>div.article{
+  width: calc(100% / 4 - 20px);
+  /* 너비 - 섹션칸 100% 안에서 아티클이 4개로 나뉘며,
+  양쪽 10px씩 총 20px 제거 */
+  float: left;
+  /* 플로트 정렬 - 적용전에 한줄로 있는 아티클을 왼쪽으로 부터 옆으로 정렬*/
+  margin: 0 10px;
+  /* 마진 - 위와 아래 0, 왼쪽 오른쪽 10px씩 */
+}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.image{
+  height: 180px;
+  /* 높이 (도형) - 도형 높이는 4칸 하고도 1/2칸 차지,
+  4 x 40 = 160, 그리고 40칸의 반절인 20을 더하면 180px  */
+}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.image.i1{}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.image.i2{}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.image.i3{}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.image.i4{}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.texts{}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.texts>h3{}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.texts>ul.nav{
+  margin-right: 10px;
+  /* 마진 - 이해가 가지 않습니다. */
+}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.texts>ul.nav>li{
+  line-height: 40px;
+  /* 라인하이트 높이 - 한문장당 1칸 차지, 총 40px */
+  margin-left: 20px;
+  /* 마진 - 이해가 가지 않습니다. */
+}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.texts>div.sns{
+  line-height: 40px;
+  /* 그리드 이미지 상에서 봤을때, 1칸 차지, 총 40px */
+}
+div.cntWrap>div.content.cnt01>div.section>div.article>div.texts>div.sns>i{}
+
+/* 배너 */
+div.bnrWrap{
+  margin-top: 120px;
+  /* 마진 - 배너 위에서 컨텐츠1까지 3칸 차지, 3 x 40 = 120px*/
+}
+div.bnrWrap>div.banner{
+  width: 80%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+div.bnrWrap>div.banner::after{
+  content: '';
+  display: block;
+  clear: both;
+  /* 플로트 정렬 - 이미지의 부모요소인 배너에 가상요소를 입힘 */
+}
+
+div.bnrWrap>div.banner>div.image{
+  width: calc(100% / 6 - 20px);
+  /* 너비 - 전체 배너 100%에서 총 6개의 아티클로 나뉘며,
+  양쪽 10px씩 총 20px 제거 */
+  height: 160px;
+  /* 높이 - 동그라미 이미지 1개당 높이 4칸 차지,
+  40 x 4 = 160px */
+  float: left;
+  /* 플로트 정렬 - 세로로 있는 동그라미 이미지들을
+  왼쪽부터 옆으로 정렬 */
+}
+div.bnrWrap>div.banner>div.image.i1{}
+div.bnrWrap>div.banner>div.image.i2{}
+div.bnrWrap>div.banner>div.image.i3{}
+div.bnrWrap>div.banner>div.image.i4{}
+div.bnrWrap>div.banner>div.image.i5{}
+div.bnrWrap>div.banner>div.image.i6{}
+
+/* 컨텐츠2 */
+div.cntWrap>div.content.cnt02{}
+div.cntWrap>div.content.cnt02>div.header{}
+div.cntWrap>div.content.cnt02>div.header>h2{}
+div.cntWrap>div.content.cnt02>div.header>p{}
+div.cntWrap>div.content.cnt02>div.section{}
+div.cntWrap>div.content.cnt02>div.section::after{
+  content: '';
+  display: block;
+  clear: both;
+  /* 플로트 정렬 - div의 부모요소인 섹션에 가상요소를 입힘 */
+}
+
+div.cntWrap>div.content.cnt02>div.section>div{
+  width: calc(100% / 3 - 20px);
+  /* 너비 - div는 artTop,Btm 다 해당되어 사용,
+  전체 너비 100%이며, 3개의 아티클로 나뉘었고,
+  그 중에서 양쪽 10px 씩 총 20px 제거 */
+  float: left;
+  /* 플로트 정렬 - 이 부분은 이해가 가지 않습니다. */
+  margin: 0 10px;
+}
+
+div.cntWrap>div.content.cnt02>div.section>div.artLeft{}
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article{}
+
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article::after{
+  content: '';
+  display: block;
+  clear: both;
+  /* 플로트 정렬 - 이미지의 부모요소인 아티클에 가상요소를 입힘 */
+}
+
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article>div.image{
+  width: calc(100% / 4);
+  /* 너비 - 아티클 전체칸 4칸, 그 중 이미지가 
+  차지하는 칸은 1칸, 원래는 100% / 4 * 1 인데,
+  위와 같이 표시 */
+  float: left;
+  /* 플로트 정렬 - 이미지 전체로 보았을때, 왼쪽으로 위치하도록 정렬. */
+}
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article>div.image.i1{}
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article>div.image.i2{}
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article>div.image.i3{}
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article>div.texts{
+  width: calc(100% / 4 * 3) - 20px;
+  /* 너비 - 아티클의 전체 100%에서
+  아티클이 차지하는 4칸, 텍스트 전체가 차지하는 칸,
+  그리고 양쪽 10px씩 총 20px 제거*/
+  float: left;
+  /* 플로트 정렬 - 아티클 범위내에서 보앗을때, 왼쪽으로 위치하도록 정렬 */
+}
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article>div.texts>h3{}
+div.cntWrap>div.content.cnt02>div.section>div.artLeft>div.article>div.texts>p{
+  line-height: 20px;
+  /* 라인하이트 높이 - 한줄당 1/2차지, 1칸은 40px 이므로
+ 결국에는 20px */
+}
+div.cntWrap>div.content.cnt02>div.section>div.artMid{}
+div.cntWrap>div.content.cnt02>div.section>div.artMid>div.article{}
+div.cntWrap>div.content.cnt02>div.section>div.artMid>div.article>div.image{
+  height: 400px;
+  /* 높이 (도형) - 높이 10칸차지, 한 칸당 40px,
+  10 x 40 = 400px */
+}
+div.cntWrap>div.content.cnt02>div.section>div.artRight{}
+div.cntWrap>div.content.cnt02>div.section>div.artRight>div.article{}
+div.cntWrap>div.content.cnt02>div.section>div.artRight>div.article>div.image{
+  width: calc(100% / 4);
+  /* 너비 - 아티클 전체칸 4칸, 그 중 이미지가 
+  차지하는 칸은 1칸, 원래는 100% / 4 * 1 인데,
+  위와 같이 표시 */
+  float: right;
+  /* 플로트 정렬 - 아티클 전체로 보았을때, 오른쪽으로 위치하도록 정렬 */
+}
+div.cntWrap>div.content.cnt02>div.section>div.artRight>div.article>div.image.i1{}
+div.cntWrap>div.content.cnt02>div.section>div.artRight>div.article>div.image.i2{}
+div.cntWrap>div.content.cnt02>div.section>div.artRight>div.article>div.image.i3{}
+div.cntWrap>div.content.cnt02>div.section>div.artRight>div.article>div.texts{
+  width: calc(100% / 4 * 3) - 20px;
+  /* 너비 - 아티클의 전체 100%에서
+  아티클이 차지하는 4칸, 텍스트 전체가 차지하는 칸,
+  그리고 양쪽 10px씩 총 20px 제거*/
+  float: left;
+  /* 플로트 정렬 - 텍스트 전체로 보았을때, 왼쪽으로 위치하도록 정렬. */
+}
+div.cntWrap>div.content.cnt02>div.section>div.artRight>div.article>div.texts>h3{}
+div.cntWrap>div.content.cnt02>div.section>div.artRight>div.article>div.texts>p{
+  line-height: 20px;
+  /* 라인하이트 높이 - 한 줄당 1/2칸 차지, 즉 20px */
+  height: 40px;
+  /* 높이 - 한 칸 차지, 즉 40px */
+}
+
+/* 푸터 */
+div.ftrWrap{}
+div.ftrWrap>div.footer{
+  width: 80%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+div.ftrWrap>div.footer>div.ftrLeft{
+  width: calc(100% / 12 * 3);
+  /* 너비 - 푸터에 해당되는 전체 100%인 12칸 중에서
+  푸터레프트가 차지하는 칸은 3칸 */
+}
+div.ftrWrap>div.footer>div.ftrLeft>h1{
+  line-height: 40px;
+  /* 라인하이트 높이 - 높이 차지 1칸, 즉 40px */
+}
+div.ftrWrap>div.footer>div.ftrLeft>h1>b{}
+div.ftrWrap>div.footer>div.ftrLeft>div.sns{
+  line-height: 80px;
+  /* 라인하이트 높이 - 높이 차지 2칸, 즉 80px */
+}
+div.ftrWrap>div.footer>div.ftrLeft>div.sns>i{}
+div.ftrWrap>div.footer>div.ftrLeft>h4{
+  line-height: 40px;
+  /* 라인하이트 높이 - 높이 차지 1칸, 즉 40px */
+}
+div.ftrWrap>div.footer>div.ftrRight{
+  width: calc(100 / 12 * 5);
+  /* 너비 - 푸터에 해당되는 전체 100%인 12칸 중에서
+  푸터 라이트가 차지하는 칸은 5칸 */
+}
+div.ftrWrap>div.footer>div.ftrRight>ul.nav{}
+div.ftrWrap>div.footer>div.ftrRight>ul.nav>li{
+  line-height: 40px;
+  /* 라인하이트 높이 - 높이 차지 1칸, 즉 40px */
+}
+div.ftrWrap>div.footer>div.ftrRight>div.contact{
+  width: calc(100% / 5 * 4);
+  /* 너비 - 전체 푸터 라이트에서 푸터 라이트가 
+  차지하는 칸 5칸, 그 중에서 콘텍트는 5칸 차지 */
+  line-height: 40px;
+  /* 라인하이트 높이 - 높이 차지 1칸, 즉 40px */
+}
