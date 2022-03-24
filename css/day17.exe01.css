@@ -9,6 +9,7 @@ div.mntopWrap>div.menuTop{
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  border: 2px solid red;
 }
 div.mntopWrap>div.menuTop>div.info{
   display: flex;
